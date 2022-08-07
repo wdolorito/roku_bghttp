@@ -6,7 +6,7 @@ function GetPosts() as String
 end function
 
 function GetComments(id) as String
-  commentsUrl = m.api_base + id + m.comments
+  commentsUrl = m.api_base + m.posts + "/" + id + m.comments
   header = { Accept : "application/json" }
 
   return SendRequest(commentsUrl, header)
@@ -21,7 +21,7 @@ function GetAlbums() as String
 end function
 
 function GetPhotos(id) as String
-  photosUrl = m.api_base + id + m.photos
+  photosUrl = m.api_base + m.albums + "/" + id + m.photos
   header = { Accept : "application/json" }
 
   return SendRequest(photosUrl, header)
@@ -36,21 +36,21 @@ function GetUsers() as String
 end function
 
 function GetUserAlbums(id) as String
-  usersUrl = m.api_base + id + m.useralbums
+  usersUrl = m.api_base + m.users + "/" + id + m.useralbums
   header = { Accept : "application/json" }
 
   return SendRequest(usersUrl, header)
 end function
 
 function GetUserTodos(id) as String
-  usersUrl = m.api_base + id + m.todos
+  usersUrl = m.api_base + m.users + "/" + id + m.todos
   header = { Accept : "application/json" }
 
   return SendRequest(usersUrl, header)
 end function
 
 function GetUserPosts(id) as String
-  usersUrl = m.api_base + id + m.userposts
+  usersUrl = m.api_base + m.users + "/" + id + m.userposts
   header = { Accept : "application/json" }
 
   return SendRequest(usersUrl, header)
